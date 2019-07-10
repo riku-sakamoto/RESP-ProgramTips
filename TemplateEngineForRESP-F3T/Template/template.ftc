@@ -1,0 +1,44 @@
+Title "Sample"
+
+< 単位系
+
+InputUnit kN mm
+
+
+< 材料指定
+
+Material    SS400   E    205    G    79.4  
+
+
+< 断面
+
+Section    SC1    Box        SS400    H    400    B    400    W    16    F    16   
+Section    SG1    I-Shape    SS400    H    500    B    200    W    9     F    16   
+
+< 性能名
+
+BeamProperty PC1 SC1
+BeamProperty PG1 SG1
+
+< 節点
+
+{%- for Node in Nodes %}
+Node    {{Node.name}}       {{Node.Coordinate.X}}        {{Node.Coordinate.Y}}       {{Node.Coordinate.Z}}
+{%- endfor %}
+
+
+< 柱
+
+{%- for Column in Columns %}
+Beam    {{Column.name}}    PC1   {{Column.NodeI.name}}    {{Column.NodeJ.name}}
+{%- endfor %}
+
+
+< 梁
+
+{%- for Girder in Girders %}
+Beam    {{Girder.name}}    PG1   {{Girder.NodeI.name}}    {{Girder.NodeJ.name}}
+{%- endfor %}
+
+
+
