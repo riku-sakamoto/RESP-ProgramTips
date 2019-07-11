@@ -21,15 +21,15 @@ class Beam(object):
     self.NodeJ = NodeJ
 
 # 全体モデル管理クラス
+# 一層屋根付きモデル
 class ModelManager(object):
-  def __init__(self,length_X:float,length_Y:float,length_Z:float,div_X:int,div_Y:int,div_Z:int):
+  def __init__(self,roof_function,length_X:float,length_Y:float,div_X:int,div_Y:int):
+    self.roof_function = roof_function
     self.length_X = length_X
     self.length_Y = length_Y
-    self.length_Z = length_Z
 
     self.div_X = div_X
     self.div_Y = div_Y
-    self.div_Z = div_Z
 
     self.nodes_dict = {}
     self.set_nodes_dict()
@@ -46,15 +46,22 @@ class ModelManager(object):
   
   @property
   def Z_coordinates(self):
-    for z in np.linspace(0,self.length_Z,self.div_Z):
-      yield z
-  
+    for XY in self.XY_coordinates:
+      yield 0.0
+      yield self.roof_function(XY[0],XY[1])
+
   @property
   def XY_coordinates(self):
     return ((X,Y) for X in self.X_coordinates for Y in self.Y_coordinates)
   
   def set_nodes_dict(self):
-    self.nodes_dict = {(XY[0],XY[1],Z):Node("Node_%i_Z%i"%(i,j),XY[0],XY[1],Z) for i,XY in enumerate(self.XY_coordinates) for j,Z in enumerate(self.Z_coordinates)}
+    self.nodes_dict = { (XY[0],XY[1],0):Node("Node_%i_Z%i"%(i,self.get_story_name(Z)),XY[0],XY[1],0) for i,XY in enumerate(self.XY_coordinates) for Z in self.Z_coordinates}
+  
+  def get_story_name(self,Z:float):
+    if Z == 0.0:
+      return 0
+    else:
+      return 1
 
   def get_nodes_generator(self):
       nodes_generator = (node for node in self.nodes_dict.values())
@@ -104,14 +111,3 @@ class ModelManager(object):
       yield (value,value_next)
 
 
-
-  
-if __name__ == "__main__":
-  ModelMan = ModelManager(10,10,100,2,2,10)
-  it = ModelMan.get_nodes_generator()
-  #print(list(it))
-  this = ModelMan.extract_pairs_self_and_next((x for x in range(10)))
-  print(list(this))
-
-
-    
