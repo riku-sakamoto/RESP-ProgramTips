@@ -3,13 +3,14 @@
 
 from jinja2 import Environment, FileSystemLoader
 from Modeler.model import ModelManager
+from RoofFunctions import trigonometric_function as trifunc
 
 
-def generate_analysis_file(length_X:float,length_Y:float,length_Z:float,span_X:int,span_Y:int,span_Z:int):
+def generate_analysis_file(length_X:float,length_Y:float,span_X:int,span_Y:int):
   # モデルの生成（サンプル）
-  Manager = ModelManager(length_X,length_Y,length_Z,span_X,span_Y,span_Z)
+  Manager = ModelManager(trifunc.sin_sin,length_X,length_Y,span_X,span_Y)
   nodes = Manager.get_nodes_generator()
-  columns = Manager.get_columns_generator()
+  columns = Manager.get_columns_generator(2,2)
   girders = Manager.get_girders_generator()
 
   # テンプレートファイルが配置されているディレクトリの指定
@@ -29,13 +30,11 @@ def generate_analysis_file(length_X:float,length_Y:float,length_Z:float,span_X:i
 
 if __name__ == "__main__":
   #長さX,長さY,長さZ,スパン数X,スパン数Y,スパン数Z
-  length_X = 3000 #mm
-  length_Y = 3000 #mm
-  length_Z = 20000 #mm
+  length_X = 2000 #mm
+  length_Y = 2000 #mm
 
-  div_X = 4
-  div_Y = 3
-  div_Z = 5
+  div_X = 10
+  div_Y = 12
 
-  generate_analysis_file(length_X,length_Y,length_Z,div_X,div_Y,div_Z)
+  generate_analysis_file(length_X,length_Y,div_X,div_Y)
   
