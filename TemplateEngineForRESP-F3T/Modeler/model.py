@@ -111,4 +111,3 @@ class ModelManager(object):
     for value,value_next in zip(now_iter,next_iter):
       yield (value,value_next)
 
-
