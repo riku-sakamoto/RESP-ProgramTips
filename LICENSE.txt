@@ -26,5 +26,5 @@ http://www.numpy.org/license.html
 * jinja
 Copyright (c) 2009 by the Jinja Team, see AUTHORS for more details.
 Some rights reserved.
-https://github.com/pallets/jinja/blob/master/LICENSE
+https://github.com/pallets/jinja/blob/master/LICENSE.rst
 ----------------------------------
