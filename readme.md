@@ -14,6 +14,9 @@
   * 記事：[pythonのテンプレートエンジンを使って簡単に解析用テキストファイルを作成する](https://wp.me/pa0XVL-12q)
   * ディレクトリ：TemplateEngineForRESP-F3T
 
+### 斜めにペアで配置された粘性ダンパーの合力について考察してみた
+  * 記事：[斜めにペアで配置された粘性ダンパーの合力について考察してみた](https://resp-kke.azurewebsites.net/2019/09/16/damper_leaned_force/)
+  * ディレクトリ：DamperDirection
 
 ## ライセンス
 MITライセンスに従います。
