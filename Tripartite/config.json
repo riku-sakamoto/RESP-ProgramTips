@@ -1,0 +1,45 @@
+{
+  "graph":
+    {
+      "output_file_name":"Tripartite.png",
+      "dpi":600,
+      "graph_width":5.0,
+      "graph_height":6.5,
+      "min_period":0.01,
+      "max_period":10.0,
+      "min_vel":0.1,
+      "max_vel":1000.0,
+      "x_label":"T (S)",
+      "y_label":"Sv (cm/s)",
+      "acc_label":"Sa (cm/s/s)",
+      "disp_label":"Sd (cm)",
+      "eigen_period":[1.5, 0.7, 0.2]
+    },
+  "spectra":
+    [
+      {
+        "name":"EL-CENTRO_NS",
+        "path":"./spectrum_data/response_spectrum.last.csv",
+        "skip_row":5,
+        "period_col":2,
+        "spectrum_col":3,
+        "color":"deepskyblue"
+      },
+      {
+        "name":"TAFT_EW",
+        "path":"./spectrum_data/response_spectrum.last.csv",
+        "skip_row":5,
+        "period_col":2,
+        "spectrum_col":4,
+        "color":"black"
+      },
+      {
+        "name":"HACHINOHE_NS",
+        "path":"./spectrum_data/response_spectrum.last.csv",
+        "skip_row":5,
+        "period_col":2,
+        "spectrum_col":5,
+        "color":"red"
+      }
+    ]
+}

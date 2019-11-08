@@ -1,0 +1,17 @@
+Title "Model20191021_001"
+<
+InputUnit N cm
+<
+< 波形
+<
+Wave EL-CENTRO_NS 2688 0.0200 Format "(7F10.1)" File "C:\Program Files (x86)\KKE\RESP-D\SampleWave2006s.dat" Skip 1 Magnify 1
+Wave TAFT_EW 2714 0.0200 Format "(7F10.1)" File "C:\Program Files (x86)\KKE\RESP-D\SampleWave2006s.dat" Skip 1429 Magnify 1
+Wave HACHINOHE_NS 2550 0.0200 Format "(10F7.2)" File "C:\Program Files (x86)\KKE\RESP-D\SampleWave2006s.dat" Skip 2488 Magnify 1
+<
+< 解析コマンド
+<
+<
+Analysis  ResponseSpectrum
+    Wave EL-CENTRO_NS TAFT_EW HACHINOHE_NS
+    Period Begin 0.02 End 10.0 LogScale
+    OutputResponse Velocity

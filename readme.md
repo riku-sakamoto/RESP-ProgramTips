@@ -18,6 +18,10 @@
   * 記事：[斜めにペアで配置された粘性ダンパーの合力について考察してみた](https://resp-kke.azurewebsites.net/2019/09/16/damper_leaned_force/)
   * ディレクトリ：DamperDirection
 
+### トリパタイト（三軸図）を描く
+  * 記事：[pythonでトリパタイト（三軸図）を描く(http://resp-kke.azurewebsites.net/2019/11/08/tripartite/)
+  * ディレクトリ：Tripartite
+
 ## ライセンス
 MITライセンスに従います。
 
