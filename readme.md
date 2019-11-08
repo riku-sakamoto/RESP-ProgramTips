@@ -19,7 +19,7 @@
   * ディレクトリ：DamperDirection
 
 ### トリパタイト（三軸図）を描く
-  * 記事：[pythonでトリパタイト（三軸図）を描く(http://resp-kke.azurewebsites.net/2019/11/08/tripartite/)
+  * 記事：[pythonでトリパタイト（三軸図）を描く](http://resp-kke.azurewebsites.net/2019/11/08/tripartite/)
   * ディレクトリ：Tripartite
 
 ## ライセンス
