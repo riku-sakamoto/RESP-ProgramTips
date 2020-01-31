@@ -110,7 +110,7 @@ class DamperEffectivenessPlot(object):
     plt.plot(degree_range,value_lst)
     plt.plot(degree_range,[deg-180 for deg in degree_range])
     ax.set_xlim([0,180])
-    
+
 
   def plot_force_vectors_for_velocities(self,fig):
     '''合力ベクトルを速度ベクトルの角度を5度ずつ変化させて図化する'''
@@ -143,6 +143,8 @@ if __name__ == "__main__":
 
   alpha = 0.5
   coeff = 20.0 #mm系
+  # alpha = 2.0
+  # coeff = 0.001 #mm系
   Damp1 = Damper(angle,coeff,alpha)
   Damp2 = Damper(-angle,coeff,alpha)
   PairViscousDamp = LeanedPairDampers(Damp1,Damp2)
@@ -161,17 +163,12 @@ if __name__ == "__main__":
   plt.show()
 
   fig2 = plt.figure(figsize=(10,5))
-  OilPlotter.plot_force_vector_comp_parallel_to_velocity(fig2)
-  ViscousPlotter.plot_force_vector_comp_parallel_to_velocity(fig2)
+  OilPlotter.plot_force_vectors_for_velocities(fig2)
+  ViscousPlotter.plot_force_vectors_for_velocities(fig2)
   plt.show()
 
   fig3 = plt.figure(figsize=(10,5))
-  OilPlotter.plot_force_vectors_for_velocities(fig3)
-  ViscousPlotter.plot_force_vectors_for_velocities(fig3)
-  plt.show()
-
-  fig4 = plt.figure(figsize=(10,5))
-  velocity_vector = 100*np.array([np.cos(30.0*np.pi/180.0),np.sin(30.0*np.pi/180.0)])
+  velocity_vector = 650*np.array([np.cos(30.0*np.pi/180.0),np.sin(30.0*np.pi/180.0)])
   OilPlotter.plot_force_vector(velocity_vector)
   ViscousPlotter.plot_force_vector(velocity_vector)
   plt.show()
